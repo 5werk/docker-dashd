@@ -1,7 +1,7 @@
 # 5werk/docker-dashd
-![We love dash!](img/drk2dash.gif)
+![We love Dash!](img/drk2dash.gif)
 
-**5werk/docker-dashd** is a simple [docker](http://docker.io/) container to operate [dash](http://dash.io/)  masternodes.
+**5werk/docker-dashd** is a simple [docker](http://docker.io/) container to operate [Dash](http://dash.io/) masternodes.
 
 The suite includes:
 
