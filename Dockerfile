@@ -17,7 +17,7 @@ ENV DASH_SHA256 1d5ca8b764ee2445fed9e551f3f8f803dc9bdd03a6b561ee4393b40b7c1f0053
 RUN cd /tmp \
   && curl -sSL "$DASH_DOWNLOAD_URL" -o dash.tgz \
   && echo "$DASH_SHA256 *dash.tgz" | /usr/bin/sha256sum -c - \
-  && tar xzf dash.tgz dash-$DASH_VERSION-linux/bin/64/dashd \
+  && tar xzf dash.tgz dash-v$DASH_VERSION-linux/bin/64/dashd \
   && cp dash-$DASH_VERSION-linux/bin/64/dashd /usr/bin/dashd \
   && rm -rf dash* \
   && echo "#""!/bin/bash\n/usr/bin/dashd -datadir=/dash \"\$@\"" > /usr/local/bin/dashd \
