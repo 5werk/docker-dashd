@@ -18,7 +18,7 @@ RUN cd /tmp \
   && curl -sSL "$DASH_DOWNLOAD_URL" -o dash.tgz \
   && echo "$DASH_SHA256 *dash.tgz" | /usr/bin/sha256sum -c - \
   && tar xzf dash.tgz dash-$DASH_VERSION-linux/bin/64/dashd \
-  && cp dash-v$DASH_VERSION-linux/bin/64/dashd /usr/bin/dashd \
+  && cp dash-$DASH_VERSION-linux/bin/64/dashd /usr/bin/dashd \
   && rm -rf dash* \
   && echo "#""!/bin/bash\n/usr/bin/dashd -datadir=/dash \"\$@\"" > /usr/local/bin/dashd \
   && chmod a+x /usr/local/bin/dashd \
