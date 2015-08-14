@@ -2,7 +2,7 @@
 # https://www.dashpay.io/
 
 FROM debian:jessie
-MAINTAINER Chris <chris@5werk.ch>
+MAINTAINER Chris <christoph@5werk.ch>
 
 RUN /usr/sbin/useradd -m -u 1234 -d /dash -s /bin/bash dash \
   && chown dash:dash -R /dash
@@ -11,7 +11,7 @@ RUN apt-get update \
   && apt-get install -y curl \
   && rm -rf /var/lib/apt/lists/*
 
-ENV DASH_VERSION 0.11.2.23
+ENV DASH_VERSION 0.12.0.44
 ENV DASH_DOWNLOAD_URL https://www.dashpay.io/binaries/dash-$DASH_VERSION-linux.tar.gz
 ENV DASH_SHA256 a6aefddd126c5271f52117c27901ece2c369a31d00c2abde3e23581716c489ac
 RUN cd /tmp \
