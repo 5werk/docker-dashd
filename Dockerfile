@@ -4,7 +4,8 @@
 FROM debian:jessie
 MAINTAINER Chris <christoph@5werk.ch>
 
-RUN /usr/sbin/useradd -m -u dashrunner -d /dash -s /bin/bash dash
+RUN /usr/sbin/useradd -m -u 1234 -d /dash -s /bin/bash dash \
+  && chown dash -R /dash
 
 RUN apt-get update \
   && apt-get install -y curl \
@@ -27,7 +28,7 @@ RUN cd /tmp \
   && chmod a+x /usr/bin/dashd \
   && chmod a+x /usr/bin/dash-cli
 
-USER dashrunner
+USER dash
 ENV HOME /dash
 VOLUME ["/dash"]
 EXPOSE 9999
