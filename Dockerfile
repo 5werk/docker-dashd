@@ -1,11 +1,11 @@
-# Dockerfile for dashd
+# Dockerfile for Dashd
 # https://www.dashpay.io/
 
 FROM debian:jessie
 MAINTAINER Chris <christoph@5werk.ch>
 
 RUN /usr/sbin/useradd -m -u 1234 -d /dash -s /bin/bash dash \
-  && chown dash -R /dash
+  && chown dash:dash -R /dash
 
 RUN apt-get update \
   && apt-get install -y curl \
@@ -26,8 +26,7 @@ RUN cd /tmp \
   && echo "#""!/bin/bash\n/usr/bin/dashd -datadir=/dash \"\$@\"" > /usr/local/bin/dashd \
   && chmod a+x /usr/local/bin/dashd \
   && chmod a+x /usr/bin/dashd \
-  && chmod a+x /usr/bin/dash-cli \
-  && chown dash /dash/dash.conf
+  && chmod a+x /usr/bin/dash-cli
 
 USER dash
 ENV HOME /dash
