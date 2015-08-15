@@ -21,7 +21,7 @@ RUN cd /tmp \
   && tar xzf dash.tgz dash-$DASH_FOLDER/bin/dashd \
   && tar xzf dash.tgz dash-$DASH_FOLDER/bin/dash-cli \
   && cp dash-$DASH_FOLDER/bin/dashd /usr/bin/dashd \
-  && cp dash-$DASH_FOLDER/bin/dashd /usr/bin/dash-cli \
+  && cp dash-$DASH_FOLDER/bin/dash-cli /usr/bin/dash-cli \
   && rm -rf dash* \
   && echo "#""!/bin/bash\n/usr/bin/dashd -datadir=/dash \"\$@\"" > /usr/local/bin/dashd \
   && chmod a+x /usr/local/bin/dashd \
