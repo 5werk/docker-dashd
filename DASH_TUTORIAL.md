@@ -137,7 +137,7 @@ Now start the client and open the console at `Help > Debug Window > Console`. To
 ```bash
 masternode start [your wallet password]
 ```
-If successful, you will see a message like *"successfully started masternode"*.
+If successful, you will see a message like *"successfully started masternode"*. If you have problems, run `sudo tail -f /var/dash/debug.log`.
 
 ***Congratulations! You successfully setup your dash masternode!***
 

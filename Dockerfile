@@ -28,7 +28,7 @@ RUN cd /tmp \
   && chmod a+x /usr/bin/dashd \
   && chmod a+x /usr/bin/dash-cli
 
-USER dash
+USER 1234
 ENV HOME /dash
 VOLUME ["/dash"]
 EXPOSE 9999
