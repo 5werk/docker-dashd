@@ -4,7 +4,7 @@
 FROM debian:jessie
 MAINTAINER Chris <christoph@5werk.ch>
 
-RUN /usr/sbin/useradd -m -u dash
+RUN /usr/sbin/useradd -m dash
 RUN /usr/sbin/useradd -m -u 1234 -d /dash -s /bin/bash dash \
   && chown dash -R /dash
 
