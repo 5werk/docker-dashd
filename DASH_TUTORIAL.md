@@ -59,7 +59,7 @@ curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 For debian, see [installation instructions](https://docs.docker.com/installation/debian/).
 
 ## 3. Server: Create the dash.conf
-Choose a folder where you want to house the dash blockchain and the server config file. In this setup we use `/var/dash`. 
+Choose a folder where you want to house the dash blockchain and the server config file. In this setup we use `/var/dash`.
 
 *Careful: this command overwrites the file /var/dash/dash.conf*
 
@@ -109,7 +109,7 @@ sudo docker ps -a
 When the dash service started properly it begins to download the blockchain. You can check the current status with this command:
 
 ```bash
-sudo docker exec dash-server dashd getinfo
+sudo docker exec dash-server dash-cli getinfo
 ```
 
 Later you can use all the docker standard commands like `sudo docker restart dash-server` to restart the service. If the service isn't running use this command to investigate: `sudo docker logs dash-server`.

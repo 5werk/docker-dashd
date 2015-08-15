@@ -1,5 +1,5 @@
 # 5werk/docker-dashd
-![We love Dash!](img/drk2dash.gif)
+![We love Dash!](https://www.dashpay.io/wp-content/uploads/2015/04/dash_heart_normal.png)
 
 **5werk/docker-dashd** is a simple [docker](http://docker.io/) container to operate [Dash](http://dashpay.io/) masternodes.
 
