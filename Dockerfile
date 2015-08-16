@@ -11,10 +11,10 @@ RUN apt-get update \
   && apt-get install -y curl \
   && rm -rf /var/lib/apt/lists/*
 
-ENV DASH_VERSION 0.12.0.44
+ENV DASH_VERSION 0.12.0.45
 ENV DASH_FOLDER 0.12.0
 ENV DASH_DOWNLOAD_URL https://www.dashpay.io/binaries/dash-$DASH_VERSION-linux64.tar.gz
-ENV DASH_SHA256 05ade8fdd701d6216733646ceb2fc5a5b38838d3d24cb79ae9e78e2fe72d25cc
+ENV DASH_SHA256 21d5591fca98299b05f51022de0707945ec29238fe69d1eef744ad6507a4685b
 RUN cd /tmp \
   && curl -sSL "$DASH_DOWNLOAD_URL" -o dash.tgz \
   && echo "$DASH_SHA256 *dash.tgz" | /usr/bin/sha256sum -c - \
