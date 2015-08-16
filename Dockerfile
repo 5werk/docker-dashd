@@ -34,4 +34,4 @@ VOLUME ["/dash"]
 EXPOSE 9999
 
 # Default arguments, can be overriden
-CMD ["dashd"]
+CMD ["while :; do echo 'Hit CTRL+C'; sleep 1; done"]
