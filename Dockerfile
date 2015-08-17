@@ -3,13 +3,16 @@
 
 FROM debian:jessie
 MAINTAINER Chris <christoph@5werk.ch>
-
-RUN /usr/sbin/useradd -m -u 1234 -d /dash -s /bin/bash dash \
-  && chown dash:dash -R /dash
+LABEL description="dockerized dashd for running masternodes"
 
 RUN apt-get update \
   && apt-get install -y curl \
-  && rm -rf /var/lib/apt/lists/*
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENV HOME /dash
+RUN /usr/sbin/useradd -s /bin/bash -m -d /dash dash \
+  && chown dash:dash -R /dash
 
 ENV DASH_VERSION 0.12.0.45
 ENV DASH_FOLDER 0.12.0
@@ -29,9 +32,8 @@ RUN cd /tmp \
   && chmod a+x /usr/bin/dash-cli
 
 USER dash
-ENV HOME /dash
 VOLUME ["/dash"]
 EXPOSE 9999
 
 # Default arguments, can be overriden
-CMD ["while :; do echo 'Hit CTRL+C'; sleep 1; done"]
+CMD ["dashd"]
