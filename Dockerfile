@@ -14,10 +14,10 @@ ENV HOME /dash
 RUN /usr/sbin/useradd -s /bin/bash -m -d /dash dash \
   && chown dash:dash -R /dash
 
-ENV DASH_VERSION 0.12.0.46
+ENV DASH_VERSION 0.12.0.47
 ENV DASH_FOLDER 0.12.0
 ENV DASH_DOWNLOAD_URL https://www.dashpay.io/binaries/dash-$DASH_VERSION-linux64.tar.gz
-ENV DASH_SHA256 24c22be6ff7131e915617d7432e8345dcf12a0dd8f8103d075fcd060b9ca7680
+ENV DASH_SHA256 e82d9d230d2446b2961e8c7a945e5add531f9e5721751a182374cbfb2181dcb4
 RUN cd /tmp \
   && curl -sSL "$DASH_DOWNLOAD_URL" -o dash.tgz \
   && echo "$DASH_SHA256 *dash.tgz" | /usr/bin/sha256sum -c - \
