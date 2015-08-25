@@ -14,22 +14,19 @@ ENV HOME /dash
 RUN /usr/sbin/useradd -s /bin/bash -m -d /dash dash \
   && chown dash:dash -R /dash
 
-ENV DASH_VERSION 0.12.0.47
+ENV DASH_VERSION 0.12.0.48
 ENV DASH_FOLDER 0.12.0
 ENV DASH_DOWNLOAD_URL https://www.dashpay.io/binaries/dash-$DASH_VERSION-linux64.tar.gz
-ENV DASH_SHA256 e82d9d230d2446b2961e8c7a945e5add531f9e5721751a182374cbfb2181dcb4
+ENV DASH_SHA256 43cc5b0b3cdc1cfdc72f4924bd4f6437fe28e062e62111d8752d9a78c32922f6
 RUN cd /tmp \
   && curl -sSL "$DASH_DOWNLOAD_URL" -o dash.tgz \
   && echo "$DASH_SHA256 *dash.tgz" | /usr/bin/sha256sum -c - \
-  && tar xzf dash.tgz dash-$DASH_FOLDER/bin/dashd \
-  && tar xzf dash.tgz dash-$DASH_FOLDER/bin/dash-cli \
-  && cp dash-$DASH_FOLDER/bin/dashd /usr/bin/dashd \
-  && cp dash-$DASH_FOLDER/bin/dash-cli /usr/bin/dash-cli \
+  && tar xzf dash.tgz --no-anchored dashd dash-cli --transform='s/.*\///' \
+  && mv dashd dash-cli /usr/bin/ \
   && rm -rf dash* \
   && echo "#""!/bin/bash\n/usr/bin/dashd -datadir=/dash \"\$@\"" > /usr/local/bin/dashd \
-  && chmod a+x /usr/local/bin/dashd \
-  && chmod a+x /usr/bin/dashd \
-  && chmod a+x /usr/bin/dash-cli
+  && echo "#""!/bin/bash\n/usr/bin/dash-cli -datadir=/dash \"\$@\"" > /usr/local/bin/dash-cli \
+  && chmod a+x /usr/local/bin/dashd /usr/local/bin/dash-cli /usr/bin/dashd /usr/bin/dash-cli
 
 USER dash
 VOLUME ["/dash"]
